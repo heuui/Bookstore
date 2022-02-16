@@ -49,8 +49,8 @@ public class BookController {
 	
 	
 	@RequestMapping(value ="/editbook{id}", method = RequestMethod.GET)
-	public String editBook(@PathVariable("id") Long bookId, Model model) {
-		model.addAttribute("book", repository.findById(bookId));
+	public String editBook(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("book", repository.findById(id));
 		return "editbook";
 	}
 	
