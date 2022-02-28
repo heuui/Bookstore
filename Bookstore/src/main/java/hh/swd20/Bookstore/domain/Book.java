@@ -4,11 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Book {
 	
-	@Id
+	@Id 		// primary key
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String title;
@@ -17,6 +19,10 @@ public class Book {
 	private String isbn;
 	private double price;
 	
+	@ManyToOne 	// Book ManyToOne Category
+	@JoinColumn(name="categoryId") // foreign key
+	private Category category;
+	
 	public Book() {
 		super();
 		this.title = null;
@@ -24,9 +30,10 @@ public class Book {
 		this.year = 0;
 		this.isbn = null;
 		this.price = 0.0;
+		this.category = null;
 	}
 	
-	public Book(Long id, String title, String author, int year, String isbn, double price) {
+	public Book(Long id, String title, String author, int year, String isbn, double price, Category category) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -34,15 +41,18 @@ public class Book {
 		this.year = year;
 		this.isbn = isbn;
 		this.price = price;
+		this.category = category;
 	}
 	
-	public Book(String title, String author, int year, String isbn, double price) {
+	public Book(String title, String author, int year, String isbn, double price, Category category) {
 		super();
 		this.title = title;
 		this.author = author;
 		this.year = year;
 		this.isbn = isbn;
 		this.price = price;
+		this.category = category;
+
 	}
 	
 	
@@ -99,10 +109,24 @@ public class Book {
 		this.price = price;
 	}
 
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
 	@Override
 	public String toString() {
-		return "Id: " + id + "Title: " + title + ", Author: " + author + ", Year: " + year + ", ISBN: " + isbn + ", Price: " + price
-				+ ". ";
+		if (this.category != null)
+			return "Id: " + id + "Title: " + title + ", Author: " + author + ", Year: " + year + ", ISBN: " + isbn + ", Price: " + price
+				+ ", Category: " + this.getCategory() + ".";
+		else
+			return "Id: " + id + "Title: " + title + ", Author: " + author + ", Year: " + year + ", ISBN: " + isbn + ", Price: " + price
+					+ ". ";
+		
+		
 	}
 	
 	
