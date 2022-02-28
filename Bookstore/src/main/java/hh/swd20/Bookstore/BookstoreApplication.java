@@ -22,31 +22,31 @@ public class BookstoreApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner bookDemo(BookRepository brepository) {
+	public CommandLineRunner bookDemo(BookRepository bookRepository) {
 		return (args) -> {
 			
 			log.info("Save some sample books"); // save to database
-			brepository.save(new Book("The Picture of Dorian Gray", "Oscar Wilde", 1891, "978-951-1-25774-5", 9.99));
-			brepository.save(new Book("Lord of the Flies", "William Golding", 1960, "978-951-1-27428-5", 9.90));
-			brepository.save(new Book("The Story of The Human Body", "Daniel Lieberman", 2013, "978-0-141-39995-9", 12.90));
+			bookRepository.save(new Book("The Picture of Dorian Gray", "Oscar Wilde", 1891, "978-951-1-25774-5", 9.99));
+			bookRepository.save(new Book("Lord of the Flies", "William Golding", 1960, "978-951-1-27428-5", 9.90));
+			bookRepository.save(new Book("The Story of The Human Body", "Daniel Lieberman", 2013, "978-0-141-39995-9", 12.90));
 
 			log.info("fetch all books"); // get from database
-			for (Book book : brepository.findAll()) {
+			for (Book book : bookRepository.findAll()) {
 				log.info(book.toString());
 			}
 			
 		};
 	}
 	@Bean
-	public CommandLineRunner categoryDemo(CategoryRepository crepository) {
+	public CommandLineRunner categoryDemo(CategoryRepository categoryRepository) {
 		return (args) -> {
 			log.info("Save some sample categories"); // save to database
-			crepository.save(new Category("Fiction"));
-			crepository.save(new Category("Nonfiction"));
-			crepository.save(new Category("Fantasy"));
+			categoryRepository.save(new Category("Fiction"));
+			categoryRepository.save(new Category("Nonfiction"));
+			categoryRepository.save(new Category("Fantasy"));
 
 			log.info("fetch all categories");
-			for (Category category : crepository.findAll()) {
+			for (Category category : categoryRepository.findAll()) {
 				log.info(category.toString());
 			}
 };

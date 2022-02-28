@@ -15,47 +15,42 @@ import hh.swd20.Bookstore.domain.CategoryRepository;
 public class BookController {
 	
 	@Autowired
-	private BookRepository repository;
-	
-	//@Autowired
-	//private CategoryRepository crepository;
+	private BookRepository bookRepository;
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String showWelcome(Model model) {
-		
 		return "welcome";
 	}
 	
 	@RequestMapping(value="/booklist", method = RequestMethod.GET)
 	public String bookList(Model model) {
 		
-		model.addAttribute("books", repository.findAll());
+		model.addAttribute("books", bookRepository.findAll());
 		return "booklist";
 	}
 	
 	@RequestMapping(value = "/addbook")
     public String addBook(Model model){
     	model.addAttribute("book", new Book());
-    	
         return "addbook";
     }  
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(Book book){
-        repository.save(book);
+        bookRepository.save(book);
         return "redirect:/booklist";
     }
 	
 	@RequestMapping(value = "/deletebook/{id}", method = RequestMethod.GET)
     public String deleteBook(@PathVariable("id") Long bookId, Model model) {
-    	repository.deleteById(bookId);
+    	bookRepository.deleteById(bookId);
         return "redirect:/booklist";
     }   
 	
 	
 	@RequestMapping(value ="/editbook/{id}")
 	public String editBook(@PathVariable("id") Long bookId, Model model) {
-		model.addAttribute("book", repository.findById(bookId));
+		model.addAttribute("book", bookRepository.findById(bookId));
 		
 		return "editbook";
 	}
