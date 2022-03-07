@@ -32,6 +32,20 @@ public class BookstoreApplication {
 			categoryRepository.save(category2);
 			Category category3 = new Category("Fantasy");
 			categoryRepository.save(category3);
+			Category category4 = new Category("Poetry");
+			categoryRepository.save(category4);
+			Category category5 = new Category("Sci-Fi");
+			categoryRepository.save(category5);
+			Category category6 = new Category("Mystery");
+			categoryRepository.save(category6);
+			Category category7 = new Category("Romance");
+			categoryRepository.save(category7);
+			Category category8 = new Category("Dystopian");
+			categoryRepository.save(category8);
+			Category category9 = new Category("Thriller");
+			categoryRepository.save(category9);
+			Category category10 = new Category("Drama");
+			categoryRepository.save(category10);
 			
 			bookRepository.save(new Book("The Picture of Dorian Gray", "Oscar Wilde", 1891, "978-951-1-25774-5", 9.99, category1));
 			bookRepository.save(new Book("Lord of the Flies", "William Golding", 1960, "978-951-1-27428-5", 9.90, category1));
