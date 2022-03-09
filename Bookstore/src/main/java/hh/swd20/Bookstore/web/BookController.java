@@ -40,7 +40,7 @@ public class BookController {
 	
 	// RESTful service - get all books
 	// Java Book-class list of objects to JSON-booklist
-	@RequestMapping(value="/books", method = RequestMethod.GET)
+	@RequestMapping(value="/students", method = RequestMethod.GET)
 	public @ResponseBody List<Book> bookListRest() {
 		return (List<Book>) bookRepository.findAll();
 	}
