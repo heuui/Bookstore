@@ -56,8 +56,8 @@ public class BookstoreApplication {
 			bookRepository.save(new Book("The Story of The Human Body", "Daniel Lieberman", 2013, "978-0-141-39995-9", 12.90, category2));
 			
 			// saving users to database
-			User user1 = new User("user", "$2a$10$FAytVfwJRgYY6o9ZCbRn5ePi7jyW6t//8TOS15o4/eizlEAu33NGe", "bookworm00@ymail.com", "USER");
-			User user2 = new User("admin", "$2a$10$O6Y2DxZShhcg8z1RS49yZeLR/mYJi3ngiaiP6Pa8CwzFyMpN1odTu", "chief.bookster@gmail.com", "ADMIN");
+			User user1 = new User("user", "$2a$10$zEdnEX8cZ155OGRez3Ws3uZWxxprWo1sh8PKgdvPsIkrxyNbwF2sm", "bookworm00@ymail.com", "USER");
+			User user2 = new User("admin", "$2a$10$0EpyCjBktOS2KOOsS3OQt.7IZmWwtMMrJXSkc2hhJPsai9CRmhcBG", "chief.bookster@gmail.com", "ADMIN");
 			userRepository.save(user1);
 			userRepository.save(user2);
 			
