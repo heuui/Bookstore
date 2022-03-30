@@ -37,4 +37,15 @@ public class BookRepositoryTest {
 		assertThat(book.getId()).isNotNull();
 	}
 	
+	// testing functionality of deleteBookById() method.
+	@Test
+	public void deleteNewBook() {
+		List<Book> books = bookRepository.findByAuthor("Oscar Wilde");
+		Book book = books.get(0);
+		bookRepository.delete(book);
+		List<Book> newBooks = bookRepository.findByAuthor("Oscar Wilde");
+		assertThat(newBooks).hasSize(0);
+		
+	}
+	
 }
