@@ -31,6 +31,12 @@ public class Category {
 		super();
 		this.name = name;
 	}
+	
+	public Category(Long categoryId, String name) {
+		super();
+		this.categoryId = categoryId;
+		this.name = name;
+	}
 
 	public List<Book> getBooks() {
 		return books;

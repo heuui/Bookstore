@@ -19,6 +19,7 @@ public class BookRepositoryTest {
 	@Autowired
 	private BookRepository bookRepository;
 	
+	// testing functionality of findByAuthor() method.
 	@Test
 	public void findByAuthorShouldReturnBook() {
 		List<Book> books = bookRepository.findByAuthor("Oscar Wilde");
@@ -27,6 +28,7 @@ public class BookRepositoryTest {
         assertThat(books.get(0).getTitle()).isEqualTo("The Picture of Dorian Gray");
 	}
 
+	// testing functionality of save() method.
 	@Test
 	public void createNewBook() {
 		
